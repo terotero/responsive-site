@@ -49,19 +49,14 @@ body{
 
 /* Header
 ------------------------------------------------------------*/
-
-header {
-    .top_img {
+header .top_img {
       background-image: url("../img/top_img.jpg");
       background-size: cover;
-      height: 500px;
-      width: 100%;         // 入れなくてもok
-    }
+
 }
 
 /* main
 ------------------------------------------------------------*/
-
 section {
     .profile {
         clear: both;
@@ -89,7 +84,7 @@ section {
     justify-content: space-between;
     @include flex-direction(column);    // スキルボックスを縦に並べる
   }
-  
+ 
   .skill-box {
     @include flex(1);
     margin: 5px 10px;                     // 左右にマージン
@@ -121,7 +116,6 @@ section {
   }
 }
 
-
 /* Footer
 ------------------------------------------------------------*/
 footer {
@@ -143,32 +137,28 @@ footer {
         @extend .uppercase;
         font-weight: bold;
     }
-
 }
 
-// desktop
-@media (min-width: 769px) {
+//  _SPのみの指定
+@media (max-width:768px) {
+   header .top_img {
+   height:250px;
+  }
+}
 
-// Skills
+//  _PCのみの指定
+@media (min-width:769px) {
+  header .top_img {
+  height:500px;
+ }
+ // Skills
   #skills {
     .container {
       @include flex-direction(row);     // スキルボックスを横に並べる
       justify-content: space-between;
     }
-    .skill-box {
-      margin: 0 10px;                   // 左右にマージン
-    }
-  }
-}
-
-
-// mobile
-@media (max-width: 250px) {
-  header {
-    .top_img {
-      background-image: url("../img/top_img.jpg");
-      background-size: cover;
-      height: 250px;
-    }
+      .skill-box {
+        margin: 0 10px;                   // 左右にマージン
+      }
   }
 }
